@@ -14,5 +14,9 @@ int main()
   // for (int i = 0; i < n; i++)
   //   std::cout << arr[i] << std::endl;
 
-  data_structure::SinglyLinkedList list = data_structure::SinglyLinkedList();
+  datastructures::singly_linked_list list = datastructures::singly_linked_list();
+  list.append(1);
+  list.append(2);
+  std::cout << list << std::endl;
+  std::cout << list.getSize() << std::endl;
 }
