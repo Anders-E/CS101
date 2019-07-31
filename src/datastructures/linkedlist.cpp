@@ -35,6 +35,7 @@ namespace data_structure {
 
   int SinglyLinkedList::get(int i)
   {
+    return 0;
   }
 
   void SinglyLinkedList::insert(int data, int i)
@@ -47,10 +48,12 @@ namespace data_structure {
 
   int SinglyLinkedList::remove(int i)
   {
+    return 0;
   }
   
   int SinglyLinkedList::peek(int i)
   {
+    return 0;
   }
 
 }
