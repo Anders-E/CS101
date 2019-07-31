@@ -2,6 +2,8 @@
 
 #include "sorting.h"
 
+namespace sorting {
+
 void bubble_sort(int arr[], int n)
 {
   bool sorted = false;
@@ -30,3 +32,6 @@ void insertion_sort(int arr[], int n)
     arr[j + 1] = key;
   }
 }
+
+}
+

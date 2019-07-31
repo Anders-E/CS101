@@ -47,5 +47,6 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
-### Visual Studio
+### Visual Studio & Visual Studio Code
 .vs
+.vscode
