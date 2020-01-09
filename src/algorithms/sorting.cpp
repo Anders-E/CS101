@@ -68,9 +68,18 @@ namespace sorting {
     delete[] right;
   }
 
-  void merge_sort(int arr[], int n)
+  void merge_sort(int arr[], int p, int r)
   {
-
+    if (p < r) {
+      int q = (p + r) / 2;
+      merge_sort(arr, p, q);
+      merge_sort(arr, q + 1, r);
+      merge(arr, p, q, r);
+    }
   }
 
+  void merge_sort(int arr[], int n)
+  {
+    merge_sort(arr, 0, n - 1);
+  }
 }
