@@ -4,15 +4,19 @@
 
 namespace datastructures {
 
-  singly_linked_list::singly_linked_list()
-  {
-    root = nullptr;
-    size = 0;
-  }
-  
   singly_linked_list::singly_linked_list(int arr[], int n)
   {
-    
+    root = nullptr;
+    len = n;
+
+    if (len < 1)
+      return;
+
+    node* current = root;
+    for (int i = 0; i < n; i++) {
+      current = new node(arr[i]);
+      current = current->next;
+    }
   }
 
   singly_linked_list::~singly_linked_list()
@@ -45,7 +49,7 @@ namespace datastructures {
         current = current->next;
       current->next = new_node;
     }
-    size++;
+    len++;
   }
 
   int singly_linked_list::remove(int i)
@@ -53,9 +57,9 @@ namespace datastructures {
     return 0;
   }
 
-  int singly_linked_list::getSize()
+  int singly_linked_list::length()
   {
-    return size;
+    return len;
   }
 
 

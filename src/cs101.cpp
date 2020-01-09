@@ -6,17 +6,17 @@
 
 int main()
 {
-  // int arr[8] = { 16, 2, 77, 40, 12071, 1, 5, 6 };
-  // int n = 8;
+  int arr[8] = { 16, 2, 77, 40, 12071, 1, 5, 6 };
+  int n = 8;
 
-  // sorting::bubble_sort(arr, n);
+  //sorting::bubble_sort(arr, n);
 
-  // for (int i = 0; i < n; i++)
-  //   std::cout << arr[i] << std::endl;
+  //for (int i = 0; i < n; i++)
+  //  std::cout << arr[i] << std::endl;
 
-  datastructures::singly_linked_list list = datastructures::singly_linked_list();
-  list.append(1);
-  list.append(2);
+  datastructures::singly_linked_list list = datastructures::singly_linked_list(arr, n);
+  //list.append(1);
+  //list.append(2);
   std::cout << list << std::endl;
-  std::cout << list.getSize() << std::endl;
+  std::cout << list.length() << std::endl;
 }
