@@ -33,29 +33,39 @@ namespace sorting {
     }
   }
 
-  const int SENTINEL = INT_MAX;
+  const int SENTINEL = 999999;
 
   void merge(int arr[], int p, int q, int r)
   {
-    int n1 = q - p;
+    int n1 = q - p + 1;
     int n2 = r - q;
 
-    int* left = new int[(unsigned long long) n1 + 1];
-    int* right = new int[(unsigned long long) n2 + 1];
+    int* left = new int[n1 + 1];
+    int* right = new int[n2 + 1];
 
     for (int i = 0; i < n1; i++)
       left[i] = arr[p + i];
     for (int i = 0; i < n2; i++)
-      right[i] = arr[q + i];
+      right[i] = arr[q + i + 1];
 
-    left[n1 + 1] = right[n2 + 1] = SENTINEL;
+    left[n1] = SENTINEL;
+    right[n2] = SENTINEL;
 
     int i = 0;
     int j = 0;
-    
-    for (int k = p; k < r; k++) {
 
+    for (int k = p; k <= r; k++) {
+      if (left[i] <= right[j]) {
+        arr[k] = left[i];
+        i++;
+      } else {
+        arr[k] = right[j];
+        j++;
+      }
     }
+
+    delete[] left;
+    delete[] right;
   }
 
   void merge_sort(int arr[], int n)
