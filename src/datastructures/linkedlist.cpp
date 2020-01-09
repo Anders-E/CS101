@@ -1,20 +1,20 @@
-#include<iostream>
+#include <iostream>
 
 #include "linkedlist.h"
 
 namespace datastructures {
 
-  singly_linked_list::singly_linked_list(int arr[], int n)
+  singly_linked_list::singly_linked_list(int arr[], int n) : root(nullptr), len(n)
   {
-    root = nullptr;
-    len = n;
-
-    if (len < 1)
+    if (len < 1) {
+      len = 0;
       return;
+    }
 
-    node* current = root;
-    for (int i = 0; i < n; i++) {
-      current = new node(arr[i]);
+    root = new node(arr[0]);
+    node *current = root;
+    for (int i = 2; i < len; i++) {
+      current->next = new node(arr[i]);
       current = current->next;
     }
   }
@@ -23,19 +23,35 @@ namespace datastructures {
   {
     node *current = root;
     while (current) {
-      node* tmp = current;
+      node *tmp = current;
       current = current->next;
       delete tmp;
     }
   }
 
-  int singly_linked_list::get(int i)
+  int singly_linked_list::get(int n)
   {
-    return 0;
+    check_bounds(n);
+
+    node *current = root;
+    for (int i = 0; i < n - 1; i++)
+      current = current->next;
+
+    return current->data;
   }
 
-  void singly_linked_list::insert(int data, int i)
+  void singly_linked_list::insert(int data, int n)
   {
+    check_bounds(n);
+
+    node *current = root;
+    for (int i = 0; i < n - 1; i++)
+      current = current->next;
+    
+    node *tmp = current->next;
+    current->next = new node(data);
+    current->next->next = tmp;
+    len++;
   }
 
   void singly_linked_list::append(int data)
@@ -44,7 +60,7 @@ namespace datastructures {
     if (!root) {
       root = new_node;
     } else {
-      node* current = root;
+      node *current = root;
       while (current->next)
         current = current->next;
       current->next = new_node;
@@ -52,9 +68,21 @@ namespace datastructures {
     len++;
   }
 
-  int singly_linked_list::remove(int i)
+  int singly_linked_list::remove(int n)
   {
-    return 0;
+    check_bounds(n);
+
+    node* current = root;
+
+    for (int i = 0; i < n - 1; i++)
+      current = current->next;
+    
+    node *tmp = current->next;
+    current->next = current->next->next;
+    delete tmp;
+    len--;
+
+    return current->data;
   }
 
   int singly_linked_list::length()
@@ -62,6 +90,10 @@ namespace datastructures {
     return len;
   }
 
+  void singly_linked_list::check_bounds(int n) {
+    if (n < 0 || n >= len)
+      throw std::out_of_range("singly_linked_list : index is out of range");
+  }
 
   std::ostream& operator<<(std::ostream& o, const singly_linked_list& list)
   {

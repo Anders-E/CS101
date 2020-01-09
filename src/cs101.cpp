@@ -19,4 +19,10 @@ int main()
   //list.append(2);
   std::cout << list << std::endl;
   std::cout << list.length() << std::endl;
+  std::cout << list.get(3) << std::endl;
+  list.insert(-1, 3);
+  std::cout << list << std::endl;
+  std::cout << list.remove(3) << std::endl;
+  std::cout << list << std::endl;
+  std::cout << list.remove(8) << std::endl;
 }

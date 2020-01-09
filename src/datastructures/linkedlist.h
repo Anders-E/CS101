@@ -10,15 +10,16 @@ namespace datastructures {
       };
       node *root;
       int len;
+      void check_bounds(int n);
     
     public:
       singly_linked_list() : root(nullptr), len(0) {};
       singly_linked_list(int arr[], int n);
       ~singly_linked_list();
-      int get(int i);
-      void insert(int data, int i);
+      int get(int n);
+      void insert(int data, int n);
       void append(int data);
-      int remove(int i);
+      int remove(int n);
       int length();
       
       friend std::ostream& operator<<(std::ostream& o, const singly_linked_list& list);
