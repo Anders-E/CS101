@@ -1,4 +1,5 @@
 #include <utility>
+#include <limits>
 
 #include "sorting.h"
 
@@ -33,7 +34,7 @@ namespace sorting {
     }
   }
 
-  const int SENTINEL = 999999;
+  const int SENTINEL = std::numeric_limits<int>::max();
 
   void merge(int arr[], int p, int q, int r)
   {
