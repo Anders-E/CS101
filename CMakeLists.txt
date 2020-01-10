@@ -12,7 +12,7 @@
 	project (
 		"CS 101"
 		VERSION 0.1
-		DESCRIPTION "A collection of computer science fundamentals including algorithms and datastructures"
+		DESCRIPTION "A collection of computer science fundamentals including algorithms and data structures"
 		LANGUAGES CXX
 	)
 
@@ -40,8 +40,8 @@
 	add_library (
 		linkedlist
 		STATIC
-		src/datastructures/linkedlist.cpp
-		src/datastructures/linkedlist.h
+		src/data_structures/linkedlist.cpp
+		src/data_structures/linkedlist.h
 	)
 	target_compile_features (
 		linkedlist

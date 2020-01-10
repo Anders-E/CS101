@@ -2,7 +2,7 @@
 
 #include "cs101.h"
 #include "algorithms/sorting.h"
-#include "datastructures/linkedlist.h"
+#include "data_structures/linkedlist.h"
 
 int main()
 {
