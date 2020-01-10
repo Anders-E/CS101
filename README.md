@@ -1,6 +1,6 @@
 # CS 101
 
-A collection of computer science fundamentals including algorithms and datastructures.
+A collection of computer science fundamentals including algorithms and data structures.
 
 ## License
 
