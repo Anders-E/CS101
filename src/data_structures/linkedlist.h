@@ -1,4 +1,4 @@
-namespace datastructures {
+namespace data_structures {
 
   class singly_linked_list
   {

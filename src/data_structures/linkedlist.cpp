@@ -2,7 +2,7 @@
 
 #include "linkedlist.h"
 
-namespace datastructures {
+namespace data_structures {
 
   singly_linked_list::singly_linked_list(int arr[], int n) : root(nullptr), len(n)
   {

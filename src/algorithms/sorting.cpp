@@ -41,8 +41,9 @@ namespace sorting {
     int n1 = q - p + 1;
     int n2 = r - q;
 
-    int* left = new int[n1 + 1];
-    int* right = new int[n2 + 1];
+    // TODO: Get rid of these dynamic allocations
+    int* left = new int[(unsigned long long) n1 + 1];
+    int* right = new int[(unsigned long long) n2 + 1];
 
     for (int i = 0; i < n1; i++)
       left[i] = arr[p + i];
