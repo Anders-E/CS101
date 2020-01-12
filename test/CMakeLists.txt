@@ -6,13 +6,13 @@ mark_as_advanced(
     gtest_disable_pthreads gtest_force_shared_crt gtest_hide_internal_symbols
 )
 
-# Folders
+# Folders for Googletest
 set_target_properties(gtest PROPERTIES FOLDER extern)
 set_target_properties(gtest_main PROPERTIES FOLDER extern)
 set_target_properties(gmock PROPERTIES FOLDER extern)
 set_target_properties(gmock_main PROPERTIES FOLDER extern)
 
-# Macro from https://cliutils.gitlab.io/modern-cmake/chapters/testing/googletest.html
+# Macros from https://cliutils.gitlab.io/modern-cmake/chapters/testing/googletest.html
 macro(package_add_test TESTNAME)
     # create an exectuable in which the tests will be stored
     add_executable(${TESTNAME} ${ARGN})
@@ -29,4 +29,21 @@ macro(package_add_test TESTNAME)
     set_target_properties(${TESTNAME} PROPERTIES FOLDER tests)
 endmacro()
 
-package_add_test(test1 test1.cpp)
+macro(package_add_test_with_libraries TESTNAME FILES LIBRARIES TEST_WORKING_DIRECTORY)
+    add_executable(${TESTNAME} ${FILES})
+    target_link_libraries(${TESTNAME} gtest gmock gtest_main ${LIBRARIES})
+    gtest_discover_tests(${TESTNAME}
+        WORKING_DIRECTORY ${TEST_WORKING_DIRECTORY}
+        PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${TEST_WORKING_DIRECTORY}"
+    )
+    set_target_properties(${TESTNAME} PROPERTIES FOLDER tests)
+endmacro()
+
+# Testing Utility Functions
+add_library (
+	test_util
+	STATIC
+	util.cpp
+)
+
+add_subdirectory(algorithms)
