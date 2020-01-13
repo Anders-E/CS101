@@ -1,4 +1,4 @@
-#include "insertion_sort.h"
+#include "sorting.h"
 
 void sorting::insertion_sort(int arr[], int n)
 {

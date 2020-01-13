@@ -1,7 +1,7 @@
 #include <utility>
 #include <limits>
 
-#include "merge_sort.h"
+#include "sorting.h"
 
 namespace sorting {
 

@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 
 #include "cs101.h"
-#include "algorithms/sorting/merge_sort.h"
+#include "algorithms/sorting/sorting.h"
 #include "data_structures/linkedlist.h"
 #include "data_structures/binary_search_tree.h"
 

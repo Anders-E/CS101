@@ -2,7 +2,7 @@
 #include <limits>
 
 #include "gtest/gtest.h"
-#include "../../src/algorithms/sorting/bubble_sort.h"
+#include "../../src/algorithms/sorting/sorting.h"
 
 class SortingTest : public ::testing::Test
 {
@@ -108,4 +108,14 @@ class SortingTest : public ::testing::Test
 TEST_F(SortingTest, BubbleSort)
 {
   ASSERT_EQ(true, test_sort(sorting::bubble_sort));
+}
+
+TEST_F(SortingTest, InsertionSort)
+{
+  ASSERT_EQ(true, test_sort(sorting::insertion_sort));
+}
+
+TEST_F(SortingTest, MergeSort)
+{
+  ASSERT_EQ(true, test_sort(sorting::merge_sort));
 }

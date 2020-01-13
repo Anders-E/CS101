@@ -1,4 +1,4 @@
-#include "bubble_sort.h"
+#include "sorting.h"
 
 void sorting::bubble_sort(int arr[], int n)
 {
