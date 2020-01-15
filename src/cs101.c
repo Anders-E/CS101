@@ -1,7 +1,6 @@
 ﻿#include <stdio.h>
 
-#include "cs101.h"
-#include "algorithms/sorting/sorting.h"
+#include <sorting.h>
 
 int main()
 {

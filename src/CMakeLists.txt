@@ -5,7 +5,6 @@ add_subdirectory(algorithms)
 add_executable (
 	cs101
 	cs101.c
-	cs101.h
 )
 target_compile_features (
 	cs101
@@ -22,5 +21,10 @@ target_link_libraries (
 
 	#PUBLIC
 	#binary_search_tree
+)
+target_include_directories (
+	sorting
+	PUBLIC
+	"${PROJECT_SOURCE_DIR}/include/algorithms"
 )
 
