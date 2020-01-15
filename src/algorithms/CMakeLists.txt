@@ -2,7 +2,7 @@
 add_library (
 	sorting
 	STATIC
-	#sorting/sorting.h
+	"${PROJECT_SOURCE_DIR}/include/algorithms/sorting.h"
 	sorting/bubble_sort.c
 	sorting/insertion_sort.c
 	sorting/merge_sort.c
