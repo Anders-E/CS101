@@ -2,7 +2,6 @@
 add_library (
 	sorting
 	STATIC
-	"${PROJECT_SOURCE_DIR}/include/algorithms/sorting.h"
 	sorting/bubble_sort.c
 	sorting/insertion_sort.c
 	sorting/merge_sort.c
@@ -15,5 +14,5 @@ target_compile_features (
 target_include_directories (
 	sorting
 	PUBLIC
-	"${PROJECT_SOURCE_DIR}/include/algorithms"
+	"${CS101_INCLUDE_DIR}/algorithms"
 )

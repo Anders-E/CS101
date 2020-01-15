@@ -32,5 +32,8 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	#endif ()
 endif ()
 
+# Variable for path to include folder
+set(CS101_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
+
 # Library Source Code
 add_subdirectory(src)

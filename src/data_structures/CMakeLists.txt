@@ -2,7 +2,6 @@
 add_library (
 	linked_list
     STATIC
-    "${PROJECT_SOURCE_DIR}/include/data_structures/linked_list.h"
 	linked_list.c
 )
 target_compile_features (
@@ -13,5 +12,5 @@ target_compile_features (
 target_include_directories (
 	linked_list
 	PUBLIC
-	"${PROJECT_SOURCE_DIR}/include/data_structures"
+	"${CS101_INCLUDE_DIR}/data_structures"
 )
