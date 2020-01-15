@@ -3,12 +3,12 @@ add_library (
 	sorting
 	STATIC
 	sorting/sorting.h
-	sorting/bubble_sort.cpp
-	sorting/insertion_sort.cpp
-	sorting/merge_sort.cpp
+	sorting/bubble_sort.c
+	sorting/insertion_sort.c
+	sorting/merge_sort.c
 )
 target_compile_features (
 	sorting
 	PRIVATE
-	cxx_std_17
+	c_std_11
 )

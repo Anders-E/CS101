@@ -1,6 +1,6 @@
 #include "sorting.h"
 
-void sorting::insertion_sort(int arr[], int n)
+void insertion_sort(int arr[], int n)
 {
   for (int i = 1; i < n; i++) {
     int key = arr[i];

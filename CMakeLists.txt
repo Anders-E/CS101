@@ -13,14 +13,11 @@ project (
 	"CS 101"
 	VERSION 0.1
 	DESCRIPTION "A collection of computer science fundamentals including algorithms and data structures"
-	LANGUAGES CXX
+	LANGUAGES C
 )
 
 # If this is the main project and not included as a subdirectory ...
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-	# No compiler-specific extensions
-	set(CMAKE_CXX_EXTENSIONS OFF)
-
 	# Target folder support for IDEs
 	set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -32,7 +29,7 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	#	enable_testing()
 	#	include(GoogleTest)
 	#	add_subdirectory(test)
-	#ndif ()
+	#endif ()
 endif ()
 
 # Library Source Code

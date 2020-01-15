@@ -1,26 +1,26 @@
 add_subdirectory(algorithms)
-add_subdirectory(data_structures)
+#add_subdirectory(data_structures)
 
 # Main Executable TODO: Remove
 add_executable (
 	cs101
-	cs101.cpp
+	cs101.c
 	cs101.h
 )
 target_compile_features (
 	cs101
 	PRIVATE
-	cxx_std_17
+	c_std_11
 )
 target_link_libraries (
 	cs101
 	PUBLIC
 	sorting
 
-	PUBLIC
-	linkedlist
+	#PUBLIC
+	#linkedlist
 
-	PUBLIC
-	binary_search_tree
+	#PUBLIC
+	#binary_search_tree
 )
 

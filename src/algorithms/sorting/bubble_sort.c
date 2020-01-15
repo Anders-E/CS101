@@ -1,16 +1,16 @@
 #include "sorting.h"
 
-void sorting::bubble_sort(int arr[], int n)
+void bubble_sort(int arr[], int n)
 {
-  bool sorted = false;
+  int sorted = 0;
   while (!sorted) {
-    sorted = true;
+    sorted = 1;
     for (int i = 0; i < n - 1; i++) {
       if (arr[i] > arr[i + 1]) {
         int tmp = arr[i];
         arr[i] = arr[i + 1];
         arr[i + 1] = tmp;
-        sorted = false;
+        sorted = 0;
       }
     }
   }
