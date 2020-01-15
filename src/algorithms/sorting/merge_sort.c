@@ -1,5 +1,4 @@
 #include <stdlib.h>
-
 #include <sorting.h>
 
 const int SENTINEL = 9999999;
