@@ -3,14 +3,10 @@
 
 const int SENTINEL = 9999999;
 
-void merge(int arr[], int p, int q, int r)
+void merge(int arr[], int left[], int right[], int p, int q, int r)
 {
 	int n1 = q - p + 1;
 	int n2 = r - q;
-
-	// TODO: Get rid of these dynamic allocations
-	int *left = malloc((n1 + 1) * sizeof(int));
-	int *right = malloc((n2 + 1) * sizeof(int));
 
 	for (int i = 0; i < n1; i++)
 		left[i] = arr[p + i];
@@ -32,22 +28,23 @@ void merge(int arr[], int p, int q, int r)
 			j++;
 		}
 	}
-
-	free(left);
-	free(right);
 }
 
-void merge_sort_(int arr[], int p, int r)
+void merge_sort_(int arr[], int left[], int right[], int p, int r)
 {
 	if (p < r) {
 		int q = (p + r) / 2;
-		merge_sort_(arr, p, q);
-		merge_sort_(arr, q + 1, r);
-		merge(arr, p, q, r);
+		merge_sort_(arr, left, right, p, q);
+		merge_sort_(arr, left, right, q + 1, r);
+		merge(arr, left, right, p, q, r);
 	}
 }
 
 void merge_sort(int arr[], int n)
 {
-	merge_sort_(arr, 0, n - 1);
+	int* left = malloc((n / 2 + 1) * sizeof(int));
+	int* right = malloc((n / 2 + 1) * sizeof(int));
+	merge_sort_(arr, left, right, 0, n - 1);
+	free(left);
+	free(right);
 }
