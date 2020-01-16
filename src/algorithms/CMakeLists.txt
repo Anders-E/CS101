@@ -6,6 +6,7 @@ add_library (
 	sorting/bubble_sort.c
 	sorting/insertion_sort.c
 	sorting/merge_sort.c
+	sorting/quicksort.c
 )
 target_compile_features (
 	sorting
