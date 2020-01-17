@@ -16,8 +16,8 @@ target_link_libraries (
 	PUBLIC
 	sorting
 
-	#PUBLIC
-	#linkedlist
+	PUBLIC
+	linked_list
 
 	#PUBLIC
 	#binary_search_tree
@@ -26,5 +26,6 @@ target_include_directories (
 	sorting
 	PUBLIC
 	"${PROJECT_SOURCE_DIR}/include/algorithms"
+	"${PROJECT_SOURCE_DIR}/include/data_structures"
 )
 
