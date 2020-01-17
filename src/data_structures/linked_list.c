@@ -15,6 +15,13 @@ struct node *node_new(int data)
 	return new_node;
 }
 
+struct linked_list *linked_list_new()
+{
+	struct linked_list *list = malloc(sizeof(struct linked_list));
+	list->root = list->length = 0;
+	return list;
+}
+
 void linked_list_free(struct linked_list *list)
 {
 	struct node *current = list->root;
@@ -25,14 +32,6 @@ void linked_list_free(struct linked_list *list)
 	}
 	free(current);
 	free(list);
-}
-
-
-struct linked_list *linked_list_new()
-{
-	struct linked_list *list = malloc(sizeof(struct linked_list));
-	list->root = list->length = 0;
-	return list;
 }
 
 int linked_list_get(struct linked_list *list, int n)
