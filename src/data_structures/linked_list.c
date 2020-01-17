@@ -10,15 +10,20 @@ struct node {
 struct node *node_new(int data)
 {
 	struct node *new_node = malloc(sizeof(struct node));
-	new_node->data = data;
-	new_node->next = 0;
+	if (new_node) {
+		new_node->data = data;
+		new_node->next = 0;
+	}
 	return new_node;
 }
 
 struct linked_list *linked_list_new()
 {
 	struct linked_list *list = malloc(sizeof(struct linked_list));
-	list->root = list->length = 0;
+	if (list) {
+		list->root = 0;
+		list->length = 0;
+	}
 	return list;
 }
 
