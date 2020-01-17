@@ -4,10 +4,10 @@
 
 int main()
 {
-	int arr[8] = { 64, 3, 1324, 0, 643, 1, 1236161, 6 };
+	int arr[8] = { 2, 3, 1, 0, 9, 1, 8, 6 };
 	int n = 8;
 
-	quicksort(arr, 8);
+	quicksort(arr, 0, 8);
 
 	for (int i = 0; i < n; i++)
 		printf("%d\n", arr[i]);

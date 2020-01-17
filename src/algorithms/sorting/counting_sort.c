@@ -4,7 +4,7 @@
 void counting_sort(int arr[], int first, int last, int k)
 {
 	int *count = calloc(k, sizeof(int));
-	int *sorted = malloc(((size_t) last - first) * sizeof(int));
+	int *sorted = malloc(((size_t)last - first) * sizeof(int));
 
 	for (int i = first; i < last; i++)
 		count[arr[i]]++;

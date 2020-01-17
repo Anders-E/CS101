@@ -23,7 +23,8 @@ void merge(int arr[], int left[], int right[], int p, int q, int r)
 		if (left[i] <= right[j]) {
 			arr[k] = left[i];
 			i++;
-		} else {
+		}
+		else {
 			arr[k] = right[j];
 			j++;
 		}
@@ -42,8 +43,8 @@ void merge_sort_(int arr[], int left[], int right[], int p, int r)
 
 void merge_sort(int arr[], int first, int last)
 {
-	int* left = malloc(((last - first) / 2 + 1) * sizeof(int));
-	int* right = malloc(((last - first) / 2 + 1) * sizeof(int));
+	int *left = malloc(((last - first) / 2 + 1) * sizeof(int));
+	int *right = malloc(((last - first) / 2 + 1) * sizeof(int));
 	merge_sort_(arr, left, right, first, last - 1);
 	free(left);
 	free(right);
