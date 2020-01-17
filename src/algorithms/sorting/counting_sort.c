@@ -1,21 +1,21 @@
 #include <stdlib.h>
 #include <sorting.h>
 
-void counting_sort(int arr[], int n, int k)
+void counting_sort(int arr[], int first, int last, int k)
 {
 	int *count = calloc(k, sizeof(int));
-	int *sorted = malloc(n * sizeof(int));
+	int *sorted = malloc(((size_t) last - first) * sizeof(int));
 
-	for (int i = 0; i < n; i++)
+	for (int i = first; i < last; i++)
 		count[arr[i]]++;
 	for (int i = 1; i < k; i++)
 		count[i] += count[i - 1];
-	for (int i = n - 1; i >= 0; i--) {
+	for (int i = last - 1; i >= first; i--) {
 		sorted[count[arr[i]] - 1] = arr[i];
 		count[arr[i]]--;
 	}
-	for (int i = 0; i < n; i++)
-		arr[i] = sorted[i];
+	for (int i = first; i < last; i++)
+		arr[i] = sorted[i - first];
 
 	free(count);
 	free(sorted);

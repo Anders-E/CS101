@@ -1,11 +1,11 @@
 #include <sorting.h>
 
-void insertion_sort(int arr[], int n)
+void insertion_sort(int arr[], int first, int last)
 {
-	for (int i = 1; i < n; i++) {
+	for (int i = first + 1; i < last; i++) {
 		int key = arr[i];
 		int j = i - 1;
-		while (j >= 0 && arr[j] > key) {
+		while (j >= first && arr[j] > key) {
 			arr[j + 1] = arr[j];
 			j = j - 1;
 		}

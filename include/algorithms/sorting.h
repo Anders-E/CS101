@@ -1,10 +1,10 @@
 #ifndef SORTING_H
 #define SORTING_H
 
-void bubble_sort(int arr[], int n);
-void counting_sort(int arr[], int n, int k);
-void insertion_sort(int arr[], int n);
-void merge_sort(int arr[], int n);
-void quicksort(int arr[], int n);
+void bubble_sort(int arr[], int first, int last);
+void counting_sort(int arr[], int first, int last, int k);
+void insertion_sort(int arr[], int first, int last);
+void merge_sort(int arr[], int first, int last);
+void quicksort(int arr[], int first, int last);
 
 #endif // !SORTING_H

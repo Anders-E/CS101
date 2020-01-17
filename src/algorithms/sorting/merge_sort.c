@@ -40,11 +40,11 @@ void merge_sort_(int arr[], int left[], int right[], int p, int r)
 	}
 }
 
-void merge_sort(int arr[], int n)
+void merge_sort(int arr[], int first, int last)
 {
-	int* left = malloc((n / 2 + 1) * sizeof(int));
-	int* right = malloc((n / 2 + 1) * sizeof(int));
-	merge_sort_(arr, left, right, 0, n - 1);
+	int* left = malloc(((last - first) / 2 + 1) * sizeof(int));
+	int* right = malloc(((last - first) / 2 + 1) * sizeof(int));
+	merge_sort_(arr, left, right, first, last - 1);
 	free(left);
 	free(right);
 }

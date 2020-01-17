@@ -30,7 +30,7 @@ void quicksort_(int arr[], int p, int r)
 	}
 }
 
-void quicksort(int arr[], int n)
+void quicksort(int arr[], int first, int last)
 {
-	quicksort_(arr, 0, n - 1);
+	quicksort_(arr, first, last - 1);
 }
