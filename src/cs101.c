@@ -8,13 +8,10 @@
 
 int main()
 {
-	int arr[10] = { 2, 4, 8, 1, 7, 14, 9, 10, 3, 16 };
-	int n = 10;
+	int arr[5] = { 157, 671, 306, 713, 290 };
+	int n = 5;
 
-	heapsort(arr, 0, 10);
+	radix_sort(arr, 0, n);
 	
-	//struct heap heap = heap_new_max(arr, n);
-	//
 	array_print(arr, n);
-	//heap_print(heap);
 }

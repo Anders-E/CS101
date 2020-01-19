@@ -7,5 +7,6 @@ void heapsort(int arr[], int first, int last);
 void insertion_sort(int arr[], int first, int last);
 void merge_sort(int arr[], int first, int last);
 void quicksort(int arr[], int first, int last);
+void radix_sort(int arr[], int first, int last);
 
 #endif // !SORTING_H
