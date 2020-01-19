@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <linked_list.h>
+#include <CS101/linked_list.h>
 
 struct node {
 	int data;

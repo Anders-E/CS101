@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <sorting.h>
+#include <CS101/sorting.h>
 
 void counting_sort(int arr[], int first, int last, int k)
 {

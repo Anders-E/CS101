@@ -1,11 +1,5 @@
-#include <sorting.h>
-
-void swap(int *x, int *y)
-{
-	int tmp = *x;
-	*x = *y;
-	*y = tmp;
-}
+#include <CS101/sorting.h>
+#include <CS101/util.h>
 
 int partition(int arr[], int p, int r)
 {

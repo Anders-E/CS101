@@ -4,6 +4,7 @@ add_library (
 	STATIC
 	sorting/counting_sort.c
 	sorting/bubble_sort.c
+	sorting/heapsort.c
 	sorting/insertion_sort.c
 	sorting/merge_sort.c
 	sorting/quicksort.c
@@ -16,5 +17,5 @@ target_compile_features (
 target_include_directories (
 	sorting
 	PUBLIC
-	"${CS101_INCLUDE_DIR}/algorithms"
+	"${CS101_INCLUDE_DIR}"
 )

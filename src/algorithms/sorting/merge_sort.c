@@ -1,7 +1,8 @@
 #include <stdlib.h>
-#include <sorting.h>
+#include <limits.h>
+#include <CS101/sorting.h>
 
-const int SENTINEL = 9999999;
+const int SENTINEL = INT_MAX;
 
 void merge(int arr[], int left[], int right[], int p, int q, int r)
 {
