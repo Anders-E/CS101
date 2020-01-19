@@ -8,10 +8,17 @@
 
 int main()
 {
-	int arr[5] = { 157, 671, 306, 713, 290 };
-	int n = 5;
+	int arr[6] = {
+		57102375,
+		35759206,
+		47592010,
+		58320837,
+		45721513,
+		15701475
+	};
+	int n = 6;
 
-	radix_sort(arr, 0, n);
+	radix_sort(arr, 0, n, 8);
 	
 	array_print(arr, n);
 }
