@@ -12,5 +12,7 @@ add_library (
 	sorting/radix_sort.c
 )
 target_compile_features(sorting PRIVATE c_std_11)
-#target_link_libraries(sorting m)
+if (UNIX)
+	target_link_libraries(sorting m)
+endif (UNIX)
 target_include_directories (sorting PUBLIC "${CS101_INCLUDE_DIR}")
