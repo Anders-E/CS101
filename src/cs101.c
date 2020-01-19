@@ -18,7 +18,14 @@ int main()
 	};
 	int n = 6;
 
-	radix_sort(arr, 0, n, 8);
-	
-	array_print(arr, n);
+	struct heap *heap = heap_new_max(arr, n);
+
+	printf("%d\n", heap_extract_root(heap));
+	printf("%d\n", heap_extract_root(heap));
+	printf("%d\n", heap_extract_root(heap));
+	printf("%d\n", heap_extract_root(heap));
+	printf("%d\n", heap_extract_root(heap));
+	printf("%d\n", heap_extract_root(heap));
+
+	array_print(heap->arr, heap->size);
 }

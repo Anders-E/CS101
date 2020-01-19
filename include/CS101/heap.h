@@ -9,10 +9,11 @@ struct heap {
 	comp_func comp;
 };
 
-struct heap heap_new(int arr[], int size, comp_func comp);
-struct heap heap_new_max(int arr[], int size);
-struct heap heap_new_min(int arr[], int size);
-void heapify(struct heap heap, int i);
-void heap_print(struct heap heap);
+struct heap *heap_new(int arr[], int size, comp_func comp);
+struct heap *heap_new_max(int arr[], int size);
+struct heap *heap_new_min(int arr[], int size);
+int heap_extract_root(struct heap *heap);
+void heapify(struct heap *heap, int i);
+void heap_print(struct heap *heap);
 
 #endif // !HEAP_H
