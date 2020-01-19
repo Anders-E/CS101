@@ -5,6 +5,24 @@
 int max_comp(int x, int y) { return x > y; }
 int min_comp(int x, int y) { return x < y; }
 
+struct heap heap_new(int arr[], int size, comp_func comp)
+{
+	struct heap heap = { arr, size, comp };
+	for (int i = size / 2; i >= 0; i--)
+		heapify(heap, i);
+	return heap;
+}
+
+struct heap heap_new_max(int arr[], int size)
+{
+	return heap_new(arr, size, max_comp);
+}
+
+struct heap heap_new_min(int arr[], int size)
+{
+	return heap_new(arr, size, min_comp);
+}
+
 void heapify(struct heap heap, int i)
 {
 	int l = 2 * i + 1;
@@ -22,24 +40,6 @@ void heapify(struct heap heap, int i)
 		swap(heap.arr + i, heap.arr + largest);
 		heapify(heap, largest);
 	}
-}
-
-struct heap heap_new(int arr[], int size, comp_func comp)
-{
-	struct heap heap = { arr, size, comp };
-	for (int i = size / 2; i >= 0; i--)
-		heapify(heap, i);
-	return heap;
-}
-
-struct heap heap_new_max(int arr[], int size)
-{
-	return heap_new(arr, size, max_comp);
-}
-
-struct heap heap_new_min(int arr[], int size)
-{
-	return heap_new(arr, size, min_comp);
 }
 
 void heap_print_(struct heap heap, int i)
