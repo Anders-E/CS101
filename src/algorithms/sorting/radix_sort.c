@@ -1,8 +1,6 @@
 #include <math.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <CS101/sorting.h>
-#include <CS101/util.h>
 
 int get_digit(int x, int n)
 {
