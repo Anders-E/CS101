@@ -8,7 +8,7 @@
 
 int main()
 {
-	int arr[6] = {
+	int arr[10] = {
 		57102375,
 		35759206,
 		47592010,
@@ -20,12 +20,12 @@ int main()
 
 	struct heap *heap = heap_new_max(arr, n);
 
-	printf("%d\n", heap_extract_root(heap));
-	printf("%d\n", heap_extract_root(heap));
-	printf("%d\n", heap_extract_root(heap));
-	printf("%d\n", heap_extract_root(heap));
-	printf("%d\n", heap_extract_root(heap));
-	printf("%d\n", heap_extract_root(heap));
+	heap_insert(heap, 5);
+	heap_insert(heap, 999999999);
+	heap_insert(heap, 2);
+	heap_insert(heap, -5);
+
 
 	array_print(heap->arr, heap->size);
+	heap_print(heap);
 }
