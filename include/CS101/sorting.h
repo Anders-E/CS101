@@ -2,6 +2,7 @@
 #define SORTING_H
 
 void bubble_sort(int arr[], int first, int last);
+void bucket_sort(int arr[], int first, int last);
 void counting_sort(int arr[], int first, int last, int k);
 void heapsort(int arr[], int first, int last);
 void insertion_sort(int arr[], int first, int last);
