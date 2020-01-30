@@ -20,6 +20,9 @@ target_link_libraries(
 
 	PUBLIC
 	stack
+
+	PUBLIC
+	queue
 )
 target_include_directories(cs101 PUBLIC "${CS101_INCLUDE_DIR}")
 

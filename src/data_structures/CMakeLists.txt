@@ -12,3 +12,8 @@ target_include_directories(heap PUBLIC "${CS101_INCLUDE_DIR}")
 add_library(stack STATIC stack.c)
 target_compile_features(stack PRIVATE c_std_11)
 target_include_directories(stack PUBLIC "${CS101_INCLUDE_DIR}")
+
+# Queue
+add_library(queue STATIC queue.c)
+target_compile_features(queue PRIVATE c_std_11)
+target_include_directories(queue PUBLIC "${CS101_INCLUDE_DIR}")
