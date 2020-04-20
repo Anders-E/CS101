@@ -1,30 +1,30 @@
 #include <CS101/sorting.h>
 #include <CS101/util.h>
 
-int partition(int arr[], int p, int r)
+int *partition(int *p, int *r)
 {
-	int x = arr[r];
-	int i = p - 1;
-	for (int j = p; j < r; j++) {
-		if (arr[j] <= x) {
+	int x = *r;
+	int *i = p - 1;
+	for (int *j = p; j < r; j++) {
+		if (*j <= x) {
 			i++;
-			swap(arr + i, arr + j);
+			swap(i, j);
 		}
 	}
-	swap(arr + i + 1, arr + r);
+	swap(i + 1, r);
 	return i + 1;
 }
 
-void quicksort_(int arr[], int p, int r)
+void _quicksort(int *p, int *r)
 {
 	if (p < r) {
-		int q = partition(arr, p, r);
-		quicksort_(arr, p, q - 1);
-		quicksort_(arr, q + 1, r);
+		int *q = partition(p, r);
+		_quicksort(p, q - 1);
+		_quicksort(q + 1, r);
 	}
 }
 
-void quicksort(int arr[], int first, int last)
+void quicksort(int *first, int *last)
 {
-	quicksort_(arr, first, last - 1);
+	_quicksort(first, last - 1);
 }

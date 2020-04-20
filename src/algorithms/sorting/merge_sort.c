@@ -32,21 +32,22 @@ void merge(int arr[], int left[], int right[], int p, int q, int r)
 	}
 }
 
-void merge_sort_(int arr[], int left[], int right[], int p, int r)
+void _merge_sort(int arr[], int left[], int right[], int p, int r)
 {
 	if (p < r) {
 		int q = (p + r) / 2;
-		merge_sort_(arr, left, right, p, q);
-		merge_sort_(arr, left, right, q + 1, r);
+		_merge_sort(arr, left, right, p, q);
+		_merge_sort(arr, left, right, q + 1, r);
 		merge(arr, left, right, p, q, r);
 	}
 }
 
-void merge_sort(int arr[], int first, int last)
+void merge_sort(int *first, int *last)
 {
-	int *left = malloc(((last - first) / 2 + 1) * sizeof(int));
-	int *right = malloc(((last - first) / 2 + 1) * sizeof(int));
-	merge_sort_(arr, left, right, first, last - 1);
+	int length = last - first;
+	int *left = malloc(length * sizeof(int));
+	int *right = malloc(length * sizeof(int));
+	_merge_sort(first, left, right, 0, length - 1);
 	free(left);
 	free(right);
 }

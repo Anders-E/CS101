@@ -8,12 +8,12 @@ void swap(int *x, int *y)
 	*y = tmp;
 }
 
-void array_print(int arr[], int n)
+void array_print(int *first, int *last)
 {
 	printf("[");
-	if (n > 0)
-		printf("%d", arr[0]);
-	for (int i = 1; i < n; i++)
-		printf(", %d", arr[i]);
+	if (first < last)
+		printf("%d", *first++);
+	while (first < last)
+		printf(", %d", *first++);
 	printf("]\n");
 }
