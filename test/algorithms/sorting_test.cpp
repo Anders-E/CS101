@@ -1,7 +1,20 @@
-//#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN 
-//#include <doctest.h>
-//#include <algorithm>
-//
-//TEST_CASE("testing bubble sort") {
-//	CHECK(1 == 1);
-//}
+#include <gtest/gtest.h>
+#include <CS101/sorting.h>
+
+#include <random>
+#include <limits>
+
+class SortingTest : public ::testing::Test
+{
+protected:
+	void SetUp() override
+	{
+
+	}
+
+	void TearDown() override
+	{
+
+	}
+};
+
