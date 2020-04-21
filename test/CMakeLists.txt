@@ -18,7 +18,6 @@ macro(package_add_test_with_libraries TESTNAME FILES LIBRARIES)
     target_compile_features(${TESTNAME} PUBLIC cxx_std_17)
     target_link_libraries(${TESTNAME} gtest gmock gtest_main ${LIBRARIES})
     gtest_discover_tests(${TESTNAME})
-    set_target_properties(${TESTNAME} PROPERTIES FOLDER tests)
 endmacro()
 
 package_add_test_with_libraries(sorting_test algorithms/sorting_test.cpp sorting)
