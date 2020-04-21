@@ -1,8 +1,7 @@
 #include <gtest/gtest.h>
-#include <CS101/sorting.h>
-
 #include <random>
 #include <limits>
+#include <CS101/sorting.h>
 
 class SortingTest : public ::testing::Test
 {
@@ -18,3 +17,10 @@ protected:
 	}
 };
 
+TEST(TestTest, 0is0) {
+	EXPECT_EQ(0, 0);
+}
+
+TEST(TestTest, 1is1) {
+	EXPECT_EQ(1, 1);
+}
