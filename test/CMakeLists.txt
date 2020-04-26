@@ -22,3 +22,4 @@ endmacro()
 
 package_add_test_with_libraries(sorting_test algorithms/sorting_test.cpp sorting)
 package_add_test_with_libraries(stack_test data_structures/stack_test.cpp stack)
+package_add_test_with_libraries(linked_list_test data_structures/linked_list_test.cpp linked_list)
