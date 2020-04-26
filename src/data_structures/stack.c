@@ -7,7 +7,7 @@ struct stack *stack_new(int size)
 	struct stack *stack = malloc(sizeof(struct stack));
 	if (stack && size > 0) {
 		stack->arr = malloc(size * sizeof(int));
-		stack->top = -1;
+		stack->top = stack->arr - 1;
 		stack->size = size;
 		return stack;
 	}
@@ -16,24 +16,24 @@ struct stack *stack_new(int size)
 
 int stack_empty(struct stack *stack)
 {
-	return stack->top == -1;
+	return stack->top == stack-> arr - 1;
 }
 
 int stack_full(struct stack *stack)
 {
-	return stack->top == stack->size - 1;
+	return stack->top == stack->arr + stack->size - 1;
 }
 
 void stack_push(struct stack *stack, int data)
 {
 	stack->top++;
-	stack->arr[stack->top] = data;
+	*stack->top = data;
 }
 
 int stack_pop(struct stack *stack)
 {
 	stack->top--;
-	return stack->arr[stack->top + 1];
+	return *(stack->top + 1);
 }
 
 void stack_free(struct stack *stack)

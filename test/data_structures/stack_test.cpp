@@ -7,12 +7,14 @@ TEST(Stack, CreateNewSuccess)
 {
     struct stack *stack = stack_new(10);
     ASSERT_NE(stack, nullptr);
+    stack_free(stack);
 }
 
 TEST(Stack, CreateNewFailure)
 {
     struct stack *stack = stack_new(0);
     ASSERT_EQ(stack, nullptr);
+    stack_free(stack);
 }
 
 TEST(Stack, Empty)
@@ -26,6 +28,7 @@ TEST(Stack, Empty)
     stack_pop(stack);
     stack_pop(stack);
     ASSERT_EQ(stack_empty(stack), true);
+    stack_free(stack);
 }
 
 TEST(Stack, Full)
@@ -38,6 +41,7 @@ TEST(Stack, Full)
     ASSERT_EQ(stack_full(stack), true);
     stack_pop(stack);
     ASSERT_EQ(stack_full(stack), false);
+    stack_free(stack);
 }
 
 TEST(Stack, Push)
@@ -49,6 +53,7 @@ TEST(Stack, Push)
     EXPECT_EQ(stack->arr[0], 1);
     EXPECT_EQ(stack->arr[1], 2);
     EXPECT_EQ(stack->arr[2], 3);
+    stack_free(stack);
 }
 
 TEST(Stack, Pop)
@@ -60,4 +65,5 @@ TEST(Stack, Pop)
     EXPECT_EQ(stack_pop(stack), 3);
     EXPECT_EQ(stack_pop(stack), 2);
     EXPECT_EQ(stack_pop(stack), 1);
+    stack_free(stack);
 }
