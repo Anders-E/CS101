@@ -16,7 +16,7 @@ const int N4 = N3 - 1;
 const int N5 = 10000;
 const int N6 = N5 - 1;
 
-class SortingTest : public ::testing::Test
+class Sorting : public ::testing::Test
 {
 private:
 	// RNG - Use default seed of 1
@@ -63,32 +63,32 @@ public:
 	}
 };
 
-TEST_F(SortingTest, BubbleSort) {
+TEST_F(Sorting, BubbleSort) {
 	test_sort(bubble_sort);
 }
 
 // TODO: enable test when bucket_sort implemented
-TEST_F(SortingTest, DISABLED_BucketSort)
+TEST_F(Sorting, DISABLED_BucketSort)
 {
 	test_sort(bucket_sort);
 }
 
-TEST_F(SortingTest, Heapsort)
+TEST_F(Sorting, Heapsort)
 {
 	test_sort(heapsort);
 }
 
-TEST_F(SortingTest, MergeSort)
+TEST_F(Sorting, MergeSort)
 {
 	test_sort(merge_sort);
 }
 
-TEST_F(SortingTest, Quicksort)
+TEST_F(Sorting, Quicksort)
 {
 	test_sort(quicksort);
 }
 
-TEST_F(SortingTest, RadixSort10)
+TEST_F(Sorting, RadixSort10)
 {
 	test_sort([](int* first, int* last) { radix_sort(first, last, 10); });
 }
