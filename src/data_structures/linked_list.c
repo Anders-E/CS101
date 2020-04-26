@@ -29,13 +29,15 @@ struct linked_list *linked_list_new()
 
 void linked_list_free(struct linked_list *list)
 {
-	struct node *current = list->root;
-	while (current->next) {
-		struct node *tmp = current;
-		current = current->next;
-		free(tmp);
+	if (list->root) {
+		struct node *current = list->root;
+		while (current->next) {
+			struct node *tmp = current;
+			current = current->next;
+			free(tmp);
+		}
+		free(current);
 	}
-	free(current);
 	free(list);
 }
 
