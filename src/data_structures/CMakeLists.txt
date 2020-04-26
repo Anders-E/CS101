@@ -6,11 +6,13 @@ target_include_directories (linked_list PUBLIC "${CS101_INCLUDE_DIR}")
 # Heap
 add_library(heap STATIC heap.c)
 target_compile_features(heap PRIVATE c_std_11)
+target_link_libraries(heap PUBLIC util)
 target_include_directories(heap PUBLIC "${CS101_INCLUDE_DIR}")
 
 # Stack
 add_library(stack STATIC stack.c)
 target_compile_features(stack PRIVATE c_std_11)
+target_link_libraries(stack PUBLIC util)
 target_include_directories(stack PUBLIC "${CS101_INCLUDE_DIR}")
 
 # Queue
