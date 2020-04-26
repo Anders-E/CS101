@@ -11,6 +11,7 @@ struct stack *stack_new(int size)
 		stack->size = size;
 		return stack;
 	}
+	free(stack);
 	return 0;
 }
 
