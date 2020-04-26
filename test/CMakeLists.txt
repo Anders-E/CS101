@@ -16,7 +16,7 @@ set_target_properties(gmock_main PROPERTIES FOLDER extern)
 macro(package_add_test_with_libraries TESTNAME FILES LIBRARIES)
     add_executable(${TESTNAME} ${FILES})
     target_compile_features(${TESTNAME} PUBLIC cxx_std_17)
-    target_link_libraries(${TESTNAME} gtest gmock gtest_main ${LIBRARIES})
+    target_link_libraries(${TESTNAME} gtest gtest_main ${LIBRARIES})
     gtest_discover_tests(${TESTNAME})
 endmacro()
 
