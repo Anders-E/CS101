@@ -22,7 +22,7 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 	# Testing
-    include(CTest)
+	include(CTest)
 	# Testing only available if this is the main app
 	# Emergency override: CS101_BUILD_TESTING
 	if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR CS101_BUILD_TESTING))
