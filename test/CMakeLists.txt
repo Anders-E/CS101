@@ -21,3 +21,4 @@ macro(package_add_test_with_libraries TESTNAME FILES LIBRARIES)
 endmacro()
 
 package_add_test_with_libraries(sorting_test algorithms/sorting_test.cpp sorting)
+package_add_test_with_libraries(stack_test data_structures/stack_test.cpp stack)

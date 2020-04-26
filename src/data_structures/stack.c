@@ -5,12 +5,13 @@
 struct stack *stack_new(int size)
 {
 	struct stack *stack = malloc(sizeof(struct stack));
-	if (stack) {
+	if (stack && size > 0) {
 		stack->arr = malloc(size * sizeof(int));
 		stack->top = -1;
 		stack->size = size;
+		return stack;
 	}
-	return stack;
+	return 0;
 }
 
 int stack_empty(struct stack *stack)
