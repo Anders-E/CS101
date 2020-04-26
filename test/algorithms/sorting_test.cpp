@@ -28,7 +28,7 @@ private:
 	std::function<int()> random_int = [this](){ return uniform_dist(rand_eng); };
 
 	// Sorted vectors - to be sorted using std::sort and used to verify correctness
-	std::vector<std::vector<int>> sorted = std::vector{
+	std::vector<std::vector<int>> sorted = {
 		std::vector(N1, 0), std::vector(N2, 0), std::vector(N3, 0), std::vector(N4, 0), std::vector(N5, 0), std::vector(N6, 0)
 	};
 	// Workspace vectors - for functions being tested to use
@@ -42,9 +42,8 @@ protected:
 			std::generate(v.begin(), v.end(), random_int);
 
 		// Copy not yet sorted vectors into corresponding workspace vectors
-		for (int i = 0; i < sorted.size() && i < workspaces.size(); i++)
-			workspaces[i] = sorted[i];
-
+		workspaces = sorted;
+		
 		// Sort (not yet) sorted vectors
 		for (std::vector<int>& v : sorted)
 			std::sort(v.begin(), v.end(), std::less<int>());
