@@ -3,10 +3,16 @@ extern "C" {
 	#include <CS101/queue.h>
 }
 
-TEST(Queue, New)
+TEST(Queue, NewSuccess)
 {
 	struct queue *queue = queue_new(10);
 	queue_free(queue);
+}
+
+TEST(Queue, NewFailure)
+{
+	struct queue *queue = queue_new(0);
+	ASSERT_FALSE(queue);
 }
 
 TEST(Queue, EnqueueDequeue)

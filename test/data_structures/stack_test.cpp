@@ -3,11 +3,17 @@ extern "C" {
 	#include <CS101/stack.h>
 }
 
-TEST(Stack, New)
+TEST(Stack, NewSucess)
 {
 	struct stack *stack = stack_new(10);
 	ASSERT_NE(stack, nullptr);
 	stack_free(stack);
+}
+
+TEST(Stack, NewFailure)
+{
+	struct stack *stack = stack_new(0);
+	ASSERT_FALSE(stack);
 }
 
 TEST(Stack, Empty)
