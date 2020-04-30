@@ -31,11 +31,6 @@ TEST(LinkedList, Remove)
 	linked_list_remove(list, 2);
 	EXPECT_EQ(linked_list_get(list, 0), 2);
 	EXPECT_EQ(linked_list_get(list, 1), 3);
-	ASSERT_EXIT(
-		linked_list_remove(list, 2),
-		::testing::KilledBySignal(SIGSEGV),
-		".*"
-	);
 	linked_list_free(list);
 }
 
@@ -48,11 +43,6 @@ TEST(LinkedList, Set)
 	linked_list_set(list, -1, 1);
 	EXPECT_EQ(linked_list_get(list, 0), 99);
 	EXPECT_EQ(linked_list_get(list, 1), -1);
-	ASSERT_EXIT(
-		linked_list_set(list, 1, 2),
-		::testing::KilledBySignal(SIGSEGV),
-		".*"
-	);
 	linked_list_free(list);
 }
 
@@ -69,10 +59,5 @@ TEST(LinkedList, Insert)
 	EXPECT_EQ(linked_list_get(list, 2), 4);
 	EXPECT_EQ(linked_list_get(list, 3), 2);
 	EXPECT_EQ(linked_list_get(list, 4), 5);
-	ASSERT_EXIT(
-		linked_list_insert(list, 99, 6),
-		::testing::KilledBySignal(SIGSEGV),
-		".*"
-	);
 	linked_list_free(list);
 }

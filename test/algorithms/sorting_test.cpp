@@ -22,8 +22,8 @@ private:
 	// RNG - Use default seed of 1
 	std::default_random_engine rand_eng;
 	std::uniform_int_distribution<int> uniform_dist = std::uniform_int_distribution<int>(
-		std::numeric_limits<int>::max(),
-		std::numeric_limits<int>::min()
+		std::numeric_limits<int>::min(),
+		std::numeric_limits<int>::max()
 	);
 	std::function<int()> random_int = [this](){ return uniform_dist(rand_eng); };
 
@@ -55,7 +55,7 @@ public:
 		for (int i = 0; i < sorted.size() && i < workspaces.size(); i++) {
 			auto w = workspaces[i];
 			auto s = sorted[i];
-			std::random_shuffle(w.begin(), w.end());
+			//std::shuffle(w.begin(), w.end(), rand_eng);
 			sort_func(w.data(), w.data() + w.size());
 			EXPECT_EQ(w, s);
 		}
