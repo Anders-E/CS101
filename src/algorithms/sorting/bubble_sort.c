@@ -1,6 +1,6 @@
 #include <CS101/sorting.h>
 
-void bubble_sort(int *first, int *last)
+void CS101_bubble_sort(int *first, int *last)
 {
 	int sorted = 0;
 	while (!sorted) {

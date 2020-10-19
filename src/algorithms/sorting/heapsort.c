@@ -3,10 +3,10 @@
 #include <CS101/heap.h>
 #include <CS101/util.h>
 
-void heapsort(int *first, int *last)
+void CS101_heapsort(int *first, int *last)
 {
 	int length = last - first;
-	struct heap *heap = heap_new_max(first, length);
+	struct CS101_heap *heap = heap_new_max(first, length);
 
 	for (int i = length - 1; i >= 1; i--) {
 		swap(heap->arr, heap->arr + i);

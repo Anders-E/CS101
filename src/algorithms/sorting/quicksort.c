@@ -24,7 +24,7 @@ void _quicksort(int *p, int *r)
 	}
 }
 
-void quicksort(int *first, int *last)
+void CS101_quicksort(int *first, int *last)
 {
 	_quicksort(first, last - 1);
 }

@@ -11,9 +11,9 @@ int parent(int i) { return (i - 1) / 2; }
 int left(int i) { return i * 2 + 1; }
 int right(int i) { return i * 2 + 2; }
 
-struct heap *heap_new(int arr[], int size, comp_func comp)
+struct CS101_heap *heap_new(int arr[], int size, comp_func comp)
 {
-	struct heap *heap = malloc(sizeof(struct heap));
+	struct CS101_heap *heap = malloc(sizeof(struct CS101_heap));
 	if (heap) {
 		heap->arr = arr;
 		heap->size = size;
@@ -24,22 +24,22 @@ struct heap *heap_new(int arr[], int size, comp_func comp)
 	return heap;
 }
 
-struct heap *heap_new_max(int arr[], int size)
+struct CS101_heap *heap_new_max(int arr[], int size)
 {
 	return heap_new(arr, size, max_comp);
 }
 
-struct heap *heap_new_min(int arr[], int size)
+struct CS101_heap *heap_new_min(int arr[], int size)
 {
 	return heap_new(arr, size, min_comp);
 }
 
-int heap_root(struct heap *heap)
+int heap_root(struct CS101_heap *heap)
 {
 	return heap->arr[0];
 }
 
-int heap_extract_root(struct heap *heap)
+int heap_extract_root(struct CS101_heap *heap)
 {
 	int max = heap->arr[0];
 	heap->arr[0] = heap->arr[heap->size - 1];
@@ -48,7 +48,7 @@ int heap_extract_root(struct heap *heap)
 	return max;
 }
 
-int heap_change_key(struct heap *heap, int i, int key)
+int heap_change_key(struct CS101_heap *heap, int i, int key)
 {
 	if (heap->comp(heap->arr[i], key))
 		return 1; // error
@@ -60,14 +60,14 @@ int heap_change_key(struct heap *heap, int i, int key)
 	return 0;
 }
 
-int heap_insert(struct heap *heap, int key)
+int heap_insert(struct CS101_heap *heap, int key)
 {
 	heap->size++;
 	heap->arr[heap->size - 1] = (heap->comp(1, 0)) ? INT_MIN : INT_MAX;
 	return heap_change_key(heap, heap->size - 1, key);
 }
 
-void heapify(struct heap *heap, int i)
+void heapify(struct CS101_heap *heap, int i)
 {
 	int l = left(i);
 	int r = right(i);
@@ -86,7 +86,7 @@ void heapify(struct heap *heap, int i)
 	}
 }
 
-void heap_print_(struct heap *heap, int i)
+void heap_print_(struct CS101_heap *heap, int i)
 {
 	printf("[%d", heap->arr[i]);
 
@@ -103,7 +103,7 @@ void heap_print_(struct heap *heap, int i)
 	printf("]");
 }
 
-void heap_print(struct heap *heap)
+void heap_print(struct CS101_heap *heap)
 {
 	heap_print_(heap, 0);
 	printf("\n");

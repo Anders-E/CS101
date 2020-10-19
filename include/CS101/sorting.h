@@ -1,13 +1,13 @@
 #ifndef SORTING_H
 #define SORTING_H
 
-void bubble_sort(int *first, int *last);
-void bucket_sort(int *first, int *last);
-void counting_sort(int *first, int *last, int k);
-void heapsort(int *first, int *last);
-void insertion_sort(int *first, int *last);
-void merge_sort(int *first, int *last);
-void quicksort(int *first, int *last);
-void radix_sort(int *first, int *last, int radix);
+void CS101_bubble_sort(int *first, int *last);
+void CS101_bucket_sort(int *first, int *last);
+void CS101_counting_sort(int *first, int *last, int k);
+void CS101_heapsort(int *first, int *last);
+void CS101_insertion_sort(int *first, int *last);
+void CS101_merge_sort(int *first, int *last);
+void CS101_quicksort(int *first, int *last);
+void CS101_radix_sort(int *first, int *last, int radix);
 
 #endif // !SORTING_H

@@ -17,9 +17,9 @@ struct node *node_new(int data)
 	return new_node;
 }
 
-struct linked_list *linked_list_new()
+struct CS101_linked_list *linked_list_new()
 {
-	struct linked_list *list = malloc(sizeof(struct linked_list));
+	struct CS101_linked_list *list = malloc(sizeof(struct CS101_linked_list));
 	if (list) {
 		list->root = 0;
 		list->length = 0;
@@ -27,7 +27,7 @@ struct linked_list *linked_list_new()
 	return list;
 }
 
-void linked_list_free(struct linked_list *list)
+void linked_list_free(struct CS101_linked_list *list)
 {
 	if (list->root) {
 		struct node *current = list->root;
@@ -41,7 +41,7 @@ void linked_list_free(struct linked_list *list)
 	free(list);
 }
 
-int linked_list_get(struct linked_list *list, int n)
+int linked_list_get(struct CS101_linked_list *list, int n)
 {
 	struct node *current = list->root;
 	for (int i = 0; i < n; i++)
@@ -49,7 +49,7 @@ int linked_list_get(struct linked_list *list, int n)
 	return current->data;
 }
 
-void linked_list_set(struct linked_list *list, int data, int n)
+void linked_list_set(struct CS101_linked_list *list, int data, int n)
 {
 	struct node *current = list->root;
 	for (int i = 0; i < n; i++)
@@ -57,7 +57,7 @@ void linked_list_set(struct linked_list *list, int data, int n)
 	current->data = data;
 }
 
-void linked_list_insert(struct linked_list *list, int data, int n)
+void linked_list_insert(struct CS101_linked_list *list, int data, int n)
 {
 	struct node *new_node = node_new(data);
 	if (n == 0) {
@@ -74,7 +74,7 @@ void linked_list_insert(struct linked_list *list, int data, int n)
 	list->length++;
 }
 
-void linked_list_append(struct linked_list *list, int data)
+void linked_list_append(struct CS101_linked_list *list, int data)
 {
 	struct node *new_node = node_new(data);
 	if (!list->root)
@@ -88,7 +88,7 @@ void linked_list_append(struct linked_list *list, int data)
 	list->length++;
 }
 
-void linked_list_remove(struct linked_list *list, int n)
+void linked_list_remove(struct CS101_linked_list *list, int n)
 {
 	if (n == 0) {
 		struct node *tmp = list->root;
@@ -108,7 +108,7 @@ void linked_list_remove(struct linked_list *list, int n)
 		list->length--;
 }
 
-void linked_list_print(struct linked_list *list)
+void linked_list_print(struct CS101_linked_list *list)
 {
 	printf("[");
 	struct node *current = list->root;

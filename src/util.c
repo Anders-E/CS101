@@ -8,7 +8,7 @@ void swap(int *x, int *y)
 	*y = tmp;
 }
 
-void array_print(int *first, int *last)
+void print_array(int *first, int *last)
 {
 	printf("[");
 	if (first < last)

@@ -6,6 +6,6 @@
 int main()
 {
 	int arr[6] = { 3, 2, 5, 6, 1, 4};
-	merge_sort(arr, arr + 6);
-	array_print(arr, arr + 6);
+	CS101_merge_sort(arr, arr + 6);
+	print_array(arr, arr + 6);
 }

@@ -63,31 +63,31 @@ public:
 };
 
 TEST_F(Sorting, BubbleSort) {
-	test_sort(bubble_sort);
+	test_sort(CS101_bubble_sort);
 }
 
 // TODO: enable test when bucket_sort implemented
 TEST_F(Sorting, DISABLED_BucketSort)
 {
-	test_sort(bucket_sort);
+	test_sort(CS101_bucket_sort);
 }
 
 TEST_F(Sorting, Heapsort)
 {
-	test_sort(heapsort);
+	test_sort(CS101_heapsort);
 }
 
 TEST_F(Sorting, MergeSort)
 {
-	test_sort(merge_sort);
+	test_sort(CS101_merge_sort);
 }
 
 TEST_F(Sorting, Quicksort)
 {
-	test_sort(quicksort);
+	test_sort(CS101_quicksort);
 }
 
 TEST_F(Sorting, RadixSort10)
 {
-	test_sort([](int* first, int* last) { radix_sort(first, last, 10); });
+	test_sort([](int* first, int* last) { CS101_radix_sort(first, last, 10); });
 }

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <CS101/sorting.h>
 
-void counting_sort(int *first, int *last, int k)
+void CS101_counting_sort(int *first, int *last, int k)
 {
 	int *count = calloc(k, sizeof(int));
 	int *sorted = malloc(((size_t) (last - first)) * sizeof(int));

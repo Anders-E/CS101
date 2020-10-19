@@ -9,7 +9,7 @@ int get_digit(int x, int n, int radix)
 	return (x % mod) / div;
 }
 
-void radix_sort(int *first, int *last, int radix)
+void CS101_radix_sort(int *first, int *last, int radix)
 {
 	int *count = malloc(radix * sizeof(int));
 	int *sorted = malloc((last - first) * sizeof(int));

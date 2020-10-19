@@ -1,6 +1,6 @@
 #include <CS101/sorting.h>
 
-void bucket_sort(int *first, int *last)
+void CS101_bucket_sort(int *first, int *last)
 {
 	//TODO: Implement
 }

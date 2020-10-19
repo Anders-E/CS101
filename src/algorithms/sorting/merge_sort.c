@@ -42,7 +42,7 @@ void _merge_sort(int arr[], int left[], int right[], int p, int r)
 	}
 }
 
-void merge_sort(int *first, int *last)
+void CS101_merge_sort(int *first, int *last)
 {
 	int length = last - first;
 	int *left = malloc(length * sizeof(int));

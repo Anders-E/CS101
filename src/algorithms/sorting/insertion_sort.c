@@ -1,6 +1,6 @@
 #include <CS101/sorting.h>
 
-void insertion_sort(int *first, int *last)
+void CS101_insertion_sort(int *first, int *last)
 {
 	for (int *i = first + 1; i < last; i++) {
 		int key = *i;
