@@ -66,12 +66,6 @@ TEST_F(Sorting, BubbleSort) {
 	test_sort(CS101_bubble_sort);
 }
 
-// TODO: enable test when bucket_sort implemented
-TEST_F(Sorting, DISABLED_BucketSort)
-{
-	test_sort(CS101_bucket_sort);
-}
-
 TEST_F(Sorting, Heapsort)
 {
 	test_sort(CS101_heapsort);

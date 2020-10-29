@@ -3,7 +3,6 @@ add_library (
 	sorting
 	STATIC
 	sorting/bubble_sort.c
-	sorting/bucket_sort.c
 	sorting/counting_sort.c
 	sorting/heapsort.c
 	sorting/insertion_sort.c
