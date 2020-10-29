@@ -5,14 +5,14 @@ extern "C" {
 
 TEST(LinkedList, NewSuccess)
 {
-	struct CS101_linked_list *list = linked_list_new();
+	CS101_linked_list *list = linked_list_new();
 	ASSERT_NE(list, nullptr);
 	linked_list_free(list);
 }
 
 TEST(LinkedList, AppendAndGet)
 {
-	struct CS101_linked_list *list = linked_list_new();
+	CS101_linked_list *list = linked_list_new();
 	linked_list_append(list, 1);
 	linked_list_append(list, 2);
 	EXPECT_EQ(linked_list_get(list, 0), 1);
@@ -22,7 +22,7 @@ TEST(LinkedList, AppendAndGet)
 
 TEST(LinkedList, Remove)
 {
-	struct CS101_linked_list *list = linked_list_new();
+	CS101_linked_list *list = linked_list_new();
 	linked_list_append(list, 1);
 	linked_list_append(list, 2);
 	linked_list_append(list, 3);
@@ -36,7 +36,7 @@ TEST(LinkedList, Remove)
 
 TEST(LinkedList, Set)
 {
-	struct CS101_linked_list *list = linked_list_new();
+	CS101_linked_list *list = linked_list_new();
 	linked_list_append(list, 1);
 	linked_list_append(list, 2);
 	linked_list_set(list, 99, 0);
@@ -48,7 +48,7 @@ TEST(LinkedList, Set)
 
 TEST(LinkedList, Insert)
 {
-	struct CS101_linked_list *list = linked_list_new();
+	CS101_linked_list *list = linked_list_new();
 	linked_list_append(list, 1);
 	linked_list_append(list, 2);
 	linked_list_insert(list, 3, 0);

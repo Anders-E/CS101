@@ -6,7 +6,7 @@
 void CS101_heapsort(int *first, int *last)
 {
 	int length = last - first;
-	struct CS101_heap *heap = heap_new_max(first, length);
+	CS101_heap *heap = heap_new_max(first, length);
 
 	for (int i = length - 1; i >= 1; i--) {
 		swap(heap->arr, heap->arr + i);

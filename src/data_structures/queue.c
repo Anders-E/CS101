@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <CS101/queue.h>
 
-struct CS101_queue *queue_new(int size)
+CS101_queue *queue_new(int size)
 {
-	struct CS101_queue *queue = malloc(sizeof(struct CS101_queue));
+	CS101_queue *queue = malloc(sizeof(CS101_queue));
 	if (queue && size > 0) {
 		queue->arr = malloc((size + 1) * sizeof(int));
 		queue->head = 0;
@@ -16,17 +16,17 @@ struct CS101_queue *queue_new(int size)
 	return 0;
 }
 
-int queue_empty(struct CS101_queue *queue)
+int queue_empty(CS101_queue *queue)
 {
 	return queue->head == queue->tail;
 }
 
-int queue_full(struct CS101_queue *queue)
+int queue_full(CS101_queue *queue)
 {
 	return (queue->head == (queue->tail + 1) % (queue->size + 1));
 }
 
-void queue_enqueue(struct CS101_queue *queue, int data)
+void queue_enqueue(CS101_queue *queue, int data)
 {
 	queue->arr[queue->tail] = data;
 	queue->tail = (queue->tail + 1) % (queue->size + 1);
@@ -34,20 +34,20 @@ void queue_enqueue(struct CS101_queue *queue, int data)
 		queue->head++;
 }
 
-int queue_dequeue(struct CS101_queue *queue)
+int queue_dequeue(CS101_queue *queue)
 {
 	int data = queue->arr[queue->head];
 	queue->head = (queue->head + 1) % (queue->size + 1);
 	return data;
 }
 
-void queue_free(struct CS101_queue *queue)
+void queue_free(CS101_queue *queue)
 {
 	free(queue->arr);
 	free(queue);
 }
 
-void queue_print(struct CS101_queue *queue)
+void queue_print(CS101_queue *queue)
 {
 	int i = queue->head;
 	printf("[");

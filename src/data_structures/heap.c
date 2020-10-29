@@ -4,42 +4,42 @@
 #include <CS101/heap.h>
 #include <CS101/util.h>
 
-int max_comp(int x, int y) { return x > y; }
-int min_comp(int x, int y) { return x < y; }
+int max_compare(int x, int y) { return x > y; }
+int min_compare(int x, int y) { return x < y; }
 
 int parent(int i) { return (i - 1) / 2; }
 int left(int i) { return i * 2 + 1; }
 int right(int i) { return i * 2 + 2; }
 
-struct CS101_heap *heap_new(int arr[], int size, comp_func comp)
+CS101_heap *heap_new(int arr[], int size, compare_func compare)
 {
-	struct CS101_heap *heap = malloc(sizeof(struct CS101_heap));
+	CS101_heap *heap = malloc(sizeof(CS101_heap));
 	if (heap) {
 		heap->arr = arr;
 		heap->size = size;
-		heap->comp = comp;
+		heap->compare = compare;
 		for (int i = size / 2; i >= 0; i--)
 			heapify(heap, i);
 	}
 	return heap;
 }
 
-struct CS101_heap *heap_new_max(int arr[], int size)
+CS101_heap *heap_new_max(int arr[], int size)
 {
-	return heap_new(arr, size, max_comp);
+	return heap_new(arr, size, max_compare);
 }
 
-struct CS101_heap *heap_new_min(int arr[], int size)
+CS101_heap *heap_new_min(int arr[], int size)
 {
-	return heap_new(arr, size, min_comp);
+	return heap_new(arr, size, min_compare);
 }
 
-int heap_root(struct CS101_heap *heap)
+int heap_root(CS101_heap *heap)
 {
 	return heap->arr[0];
 }
 
-int heap_extract_root(struct CS101_heap *heap)
+int heap_extract_root(CS101_heap *heap)
 {
 	int max = heap->arr[0];
 	heap->arr[0] = heap->arr[heap->size - 1];
@@ -48,36 +48,36 @@ int heap_extract_root(struct CS101_heap *heap)
 	return max;
 }
 
-int heap_change_key(struct CS101_heap *heap, int i, int key)
+int heap_change_key(CS101_heap *heap, int i, int key)
 {
-	if (heap->comp(heap->arr[i], key))
+	if (heap->compare(heap->arr[i], key))
 		return 1; // error
 	heap->arr[i] = key;
-	while (i > 0 && heap->comp(heap->arr[i], heap->arr[parent(i)])) {
+	while (i > 0 && heap->compare(heap->arr[i], heap->arr[parent(i)])) {
 		swap(heap->arr + i, heap->arr + parent(i));
 		i = parent(i);
 	}
 	return 0;
 }
 
-int heap_insert(struct CS101_heap *heap, int key)
+int heap_insert(CS101_heap *heap, int key)
 {
 	heap->size++;
-	heap->arr[heap->size - 1] = (heap->comp(1, 0)) ? INT_MIN : INT_MAX;
+	heap->arr[heap->size - 1] = (heap->compare(1, 0)) ? INT_MIN : INT_MAX;
 	return heap_change_key(heap, heap->size - 1, key);
 }
 
-void heapify(struct CS101_heap *heap, int i)
+void heapify(CS101_heap *heap, int i)
 {
 	int l = left(i);
 	int r = right(i);
 
 	int largest;
-	if (l < heap->size && heap->comp(heap->arr[l], heap->arr[i]))
+	if (l < heap->size && heap->compare(heap->arr[l], heap->arr[i]))
 		largest = l;
 	else
 		largest = i;
-	if (r < heap->size && heap->comp(heap->arr[r], heap->arr[largest]))
+	if (r < heap->size && heap->compare(heap->arr[r], heap->arr[largest]))
 		largest = r;
 
 	if (largest != i) {
@@ -86,7 +86,7 @@ void heapify(struct CS101_heap *heap, int i)
 	}
 }
 
-void heap_print_(struct CS101_heap *heap, int i)
+void heap_print_(CS101_heap *heap, int i)
 {
 	printf("[%d", heap->arr[i]);
 
@@ -103,7 +103,7 @@ void heap_print_(struct CS101_heap *heap, int i)
 	printf("]");
 }
 
-void heap_print(struct CS101_heap *heap)
+void heap_print(CS101_heap *heap)
 {
 	heap_print_(heap, 0);
 	printf("\n");

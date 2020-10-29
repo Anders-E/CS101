@@ -55,7 +55,7 @@ public:
 		for (int i = 0; i < sorted.size() && i < workspaces.size(); i++) {
 			auto w = workspaces[i];
 			auto s = sorted[i];
-			//std::shuffle(w.begin(), w.end(), rand_eng);
+			std::shuffle(w.begin(), w.end(), rand_eng);
 			sort_func(w.data(), w.data() + w.size());
 			EXPECT_EQ(w, s);
 		}
