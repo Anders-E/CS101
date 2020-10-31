@@ -22,7 +22,7 @@ private:
 	// RNG - Use default seed of 1
 	std::default_random_engine rand_eng;
 	std::uniform_int_distribution<int> uniform_dist = std::uniform_int_distribution<int>(
-		std::numeric_limits<int>::min(),
+		0,
 		std::numeric_limits<int>::max()
 	);
 	std::function<int()> random_int = [this](){ return uniform_dist(rand_eng); };
@@ -34,19 +34,37 @@ private:
 	// Workspace vectors - for functions being tested to use
 	std::vector<std::vector<int>> workspaces = sorted;
 
+	// Vectors with a smaller range of values for testing Counting Sort
+	int k = 1000;
+	std::vector<std::vector<int>> sorted_counting = {
+		std::vector(N1, 0), std::vector(N2, 0), std::vector(N3, 0), std::vector(N4, 0), std::vector(N5, 0), std::vector(N6, 0)
+	};
+	std::vector<std::vector<int>> workspaces_counting = sorted_counting;
+	std::uniform_int_distribution<int> uniform_dist_counting = std::uniform_int_distribution<int>(
+		0,
+		k - 1
+	);
+	std::function<int()> random_int_counting = [this](){ return uniform_dist_counting(rand_eng); };
+
 protected:
 	void SetUp() override
 	{
-		// Fill sorted vectors with random ints
-		for (std::vector<int>& v : sorted)
+		// Fill workspace vectors with random ints
+		for (std::vector<int>& v : workspaces)
 			std::generate(v.begin(), v.end(), random_int);
 
-		// Copy not yet sorted vectors into corresponding workspace vectors
-		workspaces = sorted;
-		
-		// Sort (not yet) sorted vectors
+		// Make sorted copies of workspaces
+		sorted = workspaces;
 		for (std::vector<int>& v : sorted)
 			std::sort(v.begin(), v.end(), std::less<int>());
+
+		// Same for counting sort...
+		for (std::vector<int>& v : workspaces_counting)
+			std::generate(v.begin(), v.end(), random_int_counting);
+		sorted_counting = workspaces_counting;
+		for (std::vector<int>& v : sorted_counting)
+			std::sort(v.begin(), v.end(), std::less<int>());
+
 	}
 
 public:
@@ -60,10 +78,25 @@ public:
 			EXPECT_EQ(w, s);
 		}
 	}
+
+	void test_counting_sort()
+	{
+		for (int i = 0; i < sorted_counting.size() && i < workspaces_counting.size(); i++) {
+			auto w = workspaces_counting[i];
+			auto s = sorted_counting[i];
+			std::shuffle(w.begin(), w.end(), rand_eng);
+			CS101_counting_sort(w.data(), w.data() + w.size(), k);
+			EXPECT_EQ(w, s);
+		}
+	}
 };
 
 TEST_F(Sorting, BubbleSort) {
 	test_sort(CS101_bubble_sort);
+}
+
+TEST_F(Sorting, CountingSort) {
+	test_counting_sort();
 }
 
 TEST_F(Sorting, Heapsort)
@@ -81,7 +114,7 @@ TEST_F(Sorting, Quicksort)
 	test_sort(CS101_quicksort);
 }
 
-TEST_F(Sorting, RadixSort10)
+TEST_F(Sorting, RadixSort)
 {
-	test_sort([](int* first, int* last) { CS101_radix_sort(first, last, 10); });
+	test_sort(CS101_radix_sort);
 }

@@ -15,16 +15,16 @@ int *partition(int *p, int *r)
 	return i + 1;
 }
 
-void _quicksort(int *p, int *r)
+void quicksort(int *p, int *r)
 {
 	if (p < r) {
 		int *q = partition(p, r);
-		_quicksort(p, q - 1);
-		_quicksort(q + 1, r);
+		quicksort(p, q - 1);
+		quicksort(q + 1, r);
 	}
 }
 
 void CS101_quicksort(int *first, int *last)
 {
-	_quicksort(first, last - 1);
+	quicksort(first, last - 1);
 }
